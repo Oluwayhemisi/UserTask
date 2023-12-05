@@ -7,10 +7,12 @@ import com.example.userlist.model.User;
 import com.example.userlist.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -40,8 +42,13 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
+    public List<CreateUserResponse> getAllUsers() {
+        List<User> users = userRepository.findAll();
+        return users.stream().map(user -> {
+            CreateUserResponse userDto = new CreateUserResponse();
+            BeanUtils.copyProperties(user, userDto);
+            return userDto;
+        }).collect(Collectors.toList());
     }
 
     @Override

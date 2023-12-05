@@ -10,7 +10,7 @@ import java.util.List;
 public interface UserService {
     CreateUserResponse createUser(CreateUserRequest createUserRequest) throws UserException;
 
-    List<User> getAllUsers();
+    List<CreateUserResponse> getAllUsers();
     User findUserByEmail(String email) throws UserException;
 
 }
