@@ -11,7 +11,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreateUserResponse {
-    private String message;
     private String email;
     private String userName;
     private String phoneNumber;

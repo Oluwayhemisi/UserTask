@@ -21,7 +21,7 @@ public class UserController {
     public ResponseEntity<?> createUser(@RequestBody CreateUserRequest createUserRequest) throws UserException {
         CreateUserResponse createCustomerResponse = userService.createUser(createUserRequest);
         ApiResponse apiResponse = ApiResponse.builder()
-                .message("Transaction successful")
+                .message("User created")
                 .status("success")
                 .data(createCustomerResponse)
                 .build();

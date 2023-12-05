@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService{
             throw new UserException("User Already Exist",404);
         }
         User user1 = new User();
-        user1.setUsername(createUserRequest.getUsername());
+        user1.setUserName(createUserRequest.getUserName());
         user1.setEmail(createUserRequest.getEmail());
         user1.setPhoneNumber(createUserRequest.getPhoneNumber());
         user1.setStatus(createUserRequest.getStatus());

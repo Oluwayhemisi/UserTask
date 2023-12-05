@@ -26,15 +26,19 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String Username;
+    @Column(nullable = false)
+    private String userName;
 
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String email;
-    private String PhoneNumber;
+
+    @Column(nullable = false)
+    private String phoneNumber;
 
     @CreationTimestamp
     private LocalDateTime createdDate = LocalDateTime.now();
 
+    @Column(nullable = false)
     private Boolean status;
 
 }
